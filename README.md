@@ -1,2 +1,2 @@
 # pin-matcher
-![Pin Matcher](./images/pin-matcher.png)
+![Pin Matcher](./image/pin-matcher.png)

@@ -18,10 +18,10 @@
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input class="form-control" type="text">
+                    <input id="show-digit" class="form-control text-center" type="text">
                     <div class="numbers">
-                        <div class="calc-body">
-                            <div class="calc-button-row">
+                        <div id="digit-container" class="calc-body">
+                            <div  class="calc-button-row">
                               <div class="button">7</div>
                               <div class="button">8</div>
                               <div class="button">9</div>
@@ -42,16 +42,18 @@
                                 <div class="button">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <button id="submit-btn" type="submit" class="submit-btn">Submit</button>
+                                <p class="action-left"> <span id="left-try"> 3 </span>  try left</p>
                             </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="notify-section">
-            <p class="notify">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p id="pin-not-matched" class="notify">❌ Pin Didn't Match, Please try again</p>
+            <p id="pin-matched" class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p id="try-again" class="notify">🚫 You submitted wrong pin 3 times, Please generate another pin</p>
+
         </div>
     </div>
     <script src="script.js"></script>

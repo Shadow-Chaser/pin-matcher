@@ -5,6 +5,8 @@ let pinMatched = document.getElementById('pin-matched');
 let pinNotMatched = document.getElementById('pin-not-matched');
 let tryAgain = document.getElementById('try-again');
 let leftTry = document.getElementById('left-try');
+const submitBtn = document.getElementById('submit-btn')
+
 let allDigit = "";
 let tryCounter = 3;
 
@@ -27,6 +29,7 @@ const generatePin = () => {
     }
     tryCounter = 3;
     leftTry.innerText = 3;
+    submitBtn.disabled = false;
 
     const random = Math.ceil(Math.random()*100000);
     const pin = ""+random;
@@ -60,27 +63,30 @@ document.getElementById('digit-container')
         }
     })
 
-document.getElementById('submit-btn')
-    .addEventListener('click', () =>{
-        tryCounter--;
-        leftTry.innerText = tryCounter;
-        if(tryCounter !=0)
+submitBtn.addEventListener('click', () =>{
+   
+        if(tryCounter > 0)
         {
+            tryCounter--;
             if(showDigit.value == showPin.value){
                 pinMatched.style.display = "block";
                 pinNotMatched.style.display = "none";
-                tryAgain.style.display = "none"
+                tryAgain.style.display = "none";
             }
             else{
                 pinNotMatched.style.display = "block";
                 pinMatched.style.display = "none";
-                tryAgain.style.display = "none"
+                tryAgain.style.display = "none";
             }
         }
-        else{
+        else if(tryCounter == 0){
             pinNotMatched.style.display = "none";
             pinMatched.style.display = "none";
-            tryAgain.style.display = "block"
+            tryAgain.style.display = "block";
+            submitBtn.disabled = true;
+
         }
+        leftTry.innerText = tryCounter;
+        
         
     })
